@@ -16,6 +16,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 
 ### Breaks
 
+## 2.8.2 - (2018-08-29)
+---
+
+### Fixes
+* make compatible with Elm 0.19
 
 ## 2.8.1 - (2017-11-19)
 ---
@@ -177,5 +182,3 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### New
 * start project files
 * add clarity alert
-
-

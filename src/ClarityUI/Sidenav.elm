@@ -57,8 +57,8 @@ sidenav items =
 
 
 viewNavItem : NavItem -> Html msg
-viewNavItem item =
-    case item of
+viewNavItem navItem =
+    case navItem of
         Link item ->
             viewNavLink item
 

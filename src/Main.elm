@@ -1,26 +1,23 @@
-module Main exposing (..)
+module Main exposing (Model, Msg(..), init, main, mainContent, subscriptions, update, view, viewAlerts, viewHeader, viewSidenav, viewSubnav)
 
 -- lib
+-- app
 
+import Browser
+import ClarityUI.CDN
+import ClarityUI.Header exposing (HeaderColor(..))
+import ClarityUI.Layout
+import ClarityUI.Sidenav exposing (NavItem(..))
+import ClarityUI.Subnav
 import Html exposing (..)
 
 
--- app
-
-import ClarityUI.CDN
-import ClarityUI.Layout
-import ClarityUI.Header exposing (HeaderColor(..))
-import ClarityUI.Subnav
-import ClarityUI.Sidenav exposing (NavItem(Link, Group))
-
-
-main : Program Never Model Msg
+-- main : Program Never Model Msg
 main =
-    Html.program
+    Browser.sandbox
         { init = init
         , update = update
         , view = view
-        , subscriptions = subscriptions
         }
 
 
@@ -30,18 +27,19 @@ type alias Model =
 
 init : ( Model, Cmd Msg )
 init =
-    {} ! []
+    ( {}, Cmd.none )
+
 
 
 type Msg
     = NoOp
 
 
-update : Msg -> Model -> ( Model, Cmd msg )
+update : Msg -> ( Model, Cmd Msg ) -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->
-            model ! []
+            ( {}, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -49,8 +47,8 @@ subscriptions model =
     Sub.none
 
 
-view : Model -> Html Msg
-view model =
+view : ( Model, Cmd Msg ) -> Html Msg
+view (model, _) =
     div []
         [ ClarityUI.CDN.styles
         , ClarityUI.CDN.icons
